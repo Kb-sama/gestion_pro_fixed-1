@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Gestio Pro</title>
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<header>
+  <div class="title">Gestio Pro</div>
+  <div id="user-controls">
+    <button id="btn-logout" style="display:none">Déconnexion</button>
+  </div>
+</header>
+
+<nav>
+  <button class="tab active" data-tab="boutique">🏪 Boutique</button>
+  <button class="tab" data-tab="maison">🏠 Maison</button>
+  <button class="tab" data-tab="bilan">📊 Bilan</button>
+</nav>
+
+<main id="app">
+  <!-- Login / Register -->
+  <section id="auth" class="card">
+    <h2>Connexion / Inscription</h2>
+    <input id="auth-email" placeholder="Email" />
+    <input id="auth-password" type="password" placeholder="Mot de passe (>=6)" />
+    <div style="margin-top:8px">
+      <button id="btn-login">Se connecter</button>
+      <button id="btn-register">S'inscrire</button>
+    </div>
+    <p id="auth-msg" style="color:red"></p>
+  </section>
+
+  <!-- Boutique -->
+  <section id="boutique" class="tabcontent hidden">
+    <div class="controls card">
+      <button id="btn-add-product">➕ Ajouter produit</button>
+      <button id="btn-fetch-products">↻ Rafraîchir</button>
+    </div>
+    <div id="products" class="grid"></div>
+    <h3>Ventes</h3>
+    <table id="sales"><thead><tr><th>Produit</th><th>Qté</th><th>Total</th><th>Date</th></tr></thead><tbody></tbody></table>
+  </section>
+
+  <!-- Maison -->
+  <section id="maison" class="tabcontent hidden">
+    <div class="controls card">
+      <button id="btn-add-expense">➕ Ajouter dépense/facture</button>
+      <button id="btn-fetch-expenses">↻ Rafraîchir</button>
+    </div>
+    <div id="expenses" class="grid"></div>
+    <h3>Factures</h3>
+    <table id="bills"><thead><tr><th>Motif</th><th>Montant</th><th>Échéance</th><th>État</th></tr></thead><tbody></tbody></table>
+  </section>
+
+  <!-- Bilan -->
+  <section id="bilan" class="tabcontent hidden card">
+    <h3>Bilan</h3>
+    <div id="bilan-content"></div>
+    <button id="btn-export-csv">Exporter CSV</button>
+  </section>
+</main>
+
+<!-- Modals (simple) -->
+<div id="modal" class="modal hidden"><div class="modal-inner card">
+  <button id="modal-close">✖</button>
+  <div id="modal-body"></div>
+</div></div>
+
+<script src="app.js"></script>
+</body>
+</html>
